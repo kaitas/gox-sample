@@ -1,0 +1,100 @@
+---
+const weekdayPrices = [
+  { time: '昼部（月〜金）11時〜17時', price: '¥12,000/h' },
+  { time: '夜部（月〜木）17時〜22時', price: '¥18,000/h' },
+];
+
+const weekendPrices = [
+  { time: '昼部（土/日/祝）11時〜17時', price: '¥14,000/h' },
+  { time: '夜部（金〜日/祝前/祝）17時〜22時', price: '¥20,000/h' },
+];
+
+const options = [
+  { name: 'ソフトドリンク飲み放題', price: '¥980/人', note: '4時間まで' },
+  { name: 'アルコール飲み放題', price: '¥1,980/人', note: '4時間まで' },
+  { name: 'ドリンク持ち込み', price: '¥20,000', note: '飲み放題なし' },
+  { name: 'オペレーションサポート', price: '¥12,000/人', note: '4時間' },
+  { name: 'VIP Room（7F）', price: '¥10,000', note: '' },
+];
+---
+
+<section id="price" class="py-24 relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-gox-black via-gox-gold/5 to-gox-black"></div>
+  
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="font-display text-gox-gold text-sm tracking-[0.3em] mb-4">RENTAL PLANS</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+        料金プラン
+      </h2>
+      <p class="text-white/60 text-lg">
+        Space（6F）の貸切料金
+      </p>
+    </div>
+    
+    <!-- Price Cards -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <!-- Weekday -->
+      <div class="bg-white/5 rounded-3xl p-8 border border-white/10">
+        <h3 class="font-display text-2xl text-white mb-6 flex items-center gap-3">
+          <span class="w-3 h-3 bg-gox-cyan rounded-full"></span>
+          平日
+        </h3>
+        <div class="space-y-4">
+          {weekdayPrices.map((item) => (
+            <div class="flex justify-between items-center py-3 border-b border-white/10">
+              <span class="text-white/70">{item.time}</span>
+              <span class="font-display text-xl text-gox-gold font-bold">{item.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Weekend -->
+      <div class="bg-white/5 rounded-3xl p-8 border border-gox-gold/30">
+        <h3 class="font-display text-2xl text-white mb-6 flex items-center gap-3">
+          <span class="w-3 h-3 bg-gox-gold rounded-full"></span>
+          休日
+        </h3>
+        <div class="space-y-4">
+          {weekendPrices.map((item) => (
+            <div class="flex justify-between items-center py-3 border-b border-white/10">
+              <span class="text-white/70">{item.time}</span>
+              <span class="font-display text-xl text-gox-gold font-bold">{item.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Options -->
+    <div class="bg-white/5 rounded-3xl p-8 border border-white/10 mb-12">
+      <h3 class="font-display text-2xl text-white mb-6">オプション</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {options.map((opt) => (
+          <div class="flex justify-between items-center py-3 px-4 bg-white/5 rounded-xl">
+            <div>
+              <span class="text-white">{opt.name}</span>
+              {opt.note && <span class="text-white/50 text-sm ml-2">({opt.note})</span>}
+            </div>
+            <span class="font-display text-gox-gold font-bold">{opt.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-white/60 mb-6">
+        ※ 価格は全て税込みです。定期利用や1日貸切など、お気軽にご相談ください。
+      </p>
+      <a 
+        href="#rental"
+        class="inline-flex items-center gap-3 bg-gox-gold hover:bg-gox-gold-light text-gox-black font-display font-bold text-lg px-10 py-5 rounded-full transition-all duration-300 hover:scale-105"
+      >
+        料金・空き状況を問い合わせる
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+---
+const features = [
+  { icon: '🎤', title: 'イベントスペース', desc: 'セミナー、ミートアップ、カンファレンスに最適' },
+  { icon: '💻', title: 'コワーキング', desc: '平日2,000円でドロップイン利用可能' },
+  { icon: '🎮', title: 'Gaming PC', desc: 'ハイスペックPC・防音室完備' },
+  { icon: '🎵', title: 'DJ機材', desc: 'Pioneer XDJ-XZ・音響設備完備' },
+];
+
+const images = [
+  { src: 'https://cryptoloungegox.com/wp-content/themes/cryptoloungegox/img/img_about04.jpg', label: 'Main Hall' },
+  { src: 'https://cryptoloungegox.com/wp-content/themes/cryptoloungegox/img/img_about02.jpg', label: 'Lounge' },
+  { src: 'https://cryptoloungegox.com/wp-content/themes/cryptoloungegox/img/img_about07.jpg', label: 'VIP Room' },
+  { src: 'https://cryptoloungegox.com/wp-content/themes/cryptoloungegox/img/img_about12.jpg', label: 'DJ Booth' },
+];
+---
+
+<section id="about" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="font-display text-gox-cyan text-sm tracking-[0.3em] mb-4">ABOUT GOX</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+        Crypto Lounge GOXについて
+      </h2>
+      <p class="text-white/60 text-lg max-w-3xl mx-auto leading-relaxed">
+        東京・東新宿に位置するCryptoLoungeGOXは、<br class="hidden md:block" />
+        クリプトに関する情報交換やコミュニケーションを目的としたラウンジスペースです。<br class="hidden md:block" />
+        初心者から上級者まで、ブロックチェーン技術に関心を持つ人々が集い、学び、交流する場となっています。
+      </p>
+    </div>
+    
+    <!-- Photo Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+      {images.map((img) => (
+        <div class="group relative aspect-square rounded-2xl overflow-hidden">
+          <img 
+            src={img.src} 
+            alt={img.label}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-gox-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <span class="font-display text-white text-sm">{img.label}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Features -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {features.map((feature) => (
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-gox-gold/30 transition-all duration-300 text-center">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="font-display text-white font-bold text-lg mb-2">{feature.title}</h3>
+          <p class="text-white/60 text-sm">{feature.desc}</p>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Access Info -->
+    <div class="mt-16 bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="font-display text-2xl text-gox-gold mb-6">アクセス</h3>
+          <dl class="space-y-4 text-white/80">
+            <div>
+              <dt class="text-white/50 text-sm">住所</dt>
+              <dd class="text-lg">〒160-0021 東京都新宿区歌舞伎町２丁目１９−１５ てなむタウンビル 6F</dd>
+            </div>
+            <div>
+              <dt class="text-white/50 text-sm">最寄り駅</dt>
+              <dd>東新宿駅 徒歩3分 / 新宿駅 徒歩10分</dd>
+            </div>
+            <div>
+              <dt class="text-white/50 text-sm">営業時間</dt>
+              <dd>平日11:00〜19:00 / 土日祝11:00〜19:00</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="aspect-video rounded-2xl overflow-hidden">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.1234567890123!2d139.70123456789012!3d35.69876543210987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d2a3b4c5d6e%3A0x1234567890abcdef!2z44Kv44Oq44OX44OI44Op44Km44Oz44K4R09Y!5e0!3m2!1sja!2sjp!4v1234567890123"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy"
+            class="grayscale hover:grayscale-0 transition-all duration-500"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
